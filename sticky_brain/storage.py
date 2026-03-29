@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 from pathlib import Path
 from platformdirs import user_data_dir
@@ -18,6 +19,11 @@ def app_storage_dir() -> Path:
 
 
 def default_db_path() -> Path:
+    override = os.environ.get("STICKY_BRAIN_DB_PATH", "").strip()
+    if override:
+        custom_path = Path(override).expanduser()
+        custom_path.parent.mkdir(parents=True, exist_ok=True)
+        return custom_path
     return app_storage_dir() / "sticky_brain.db"
 
 
