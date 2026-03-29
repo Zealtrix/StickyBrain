@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+sticky_brain.db
+build/
+dist/
+installer-dist/
+*.spec.bak

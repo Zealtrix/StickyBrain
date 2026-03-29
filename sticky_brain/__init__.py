@@ -1,0 +1,1 @@
+"""Sticky Brain desktop app."""
